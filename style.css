@@ -641,6 +641,11 @@ button { font-family: inherit; cursor: pointer; }
   50% { transform: translateY(-50%) translateY(-8px); }
 }
 
+@keyframes phoneFloatMobile {
+  0%, 100% { transform: translateY(-50%) translateY(0px); }
+  50% { transform: translateY(-50%) translateY(-10px); }
+}
+
 .stack-phone {
   position: absolute;
   transition: transform 0.6s var(--transition), opacity 0.6s;
@@ -1861,18 +1866,92 @@ button { font-family: inherit; cursor: pointer; }
    RESPONSIVE — Tablet (≤1024px)
    ================================================================ */
 @media (max-width: 1024px) {
-  .hero-visuals { display: none; }
-
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-content { max-width: 100%; }
   .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    min-height: auto;
+    padding-top: calc(var(--header-height) + 1.5rem);
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    width: 100%;
+    order: 1;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
-  .hero-content { display: flex; flex-direction: column; align-items: center; }
   .hero-desc { max-width: 560px; }
   .hero-actions { justify-content: center; }
   .hero-platforms { justify-content: center; }
+
+  /* Animated Hero Visuals on Tablet & Mobile */
+  .hero-visuals {
+    display: block !important;
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    max-width: 320px;
+    height: 380px;
+    margin: 2.25rem auto 0 auto;
+    pointer-events: none;
+    order: 2;
+    animation: heroVisualsIn 1s var(--transition) 0.3s both;
+  }
+
+  .phone-stack {
+    top: 50%;
+    left: 50%;
+    width: 190px;
+    height: 370px;
+    transform: translateY(-50%);
+    animation: phoneFloatMobile 5s ease-in-out infinite;
+  }
+
+  .stack-frame {
+    width: 180px;
+    height: 360px;
+    border-radius: 26px;
+    box-shadow:
+      0 20px 50px rgba(0,0,0,0.6),
+      0 0 50px rgba(255, 45, 120, 0.12),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .phone-front {
+    transform: translate(-50%, -50%);
+  }
+
+  .phone-back-left {
+    transform: translate(calc(-50% - 42px), calc(-50% + 10px)) scale(0.86) rotateY(6deg);
+    opacity: 0.55;
+  }
+
+  .phone-back-right {
+    transform: translate(calc(-50% + 42px), calc(-50% + 18px)) scale(0.76) rotateY(-6deg);
+    opacity: 0.35;
+  }
+
+  .equalizer-float {
+    bottom: 25px;
+    left: calc(50% + 60px);
+    opacity: 0.85;
+    z-index: 10;
+  }
+
+  .equalizer-float span {
+    width: 4px;
+    background: var(--accent);
+  }
 
   .features-bento {
     grid-template-columns: repeat(2, 1fr);
@@ -2047,6 +2126,36 @@ button { font-family: inherit; cursor: pointer; }
    RESPONSIVE — Small phones (≤480px)
    ================================================================ */
 @media (max-width: 480px) {
+  .hero-visuals {
+    max-width: 270px;
+    height: 330px;
+    margin-top: 1.75rem;
+  }
+
+  .phone-stack {
+    width: 160px;
+    height: 320px;
+  }
+
+  .stack-frame {
+    width: 155px;
+    height: 310px;
+    border-radius: 22px;
+  }
+
+  .phone-back-left {
+    transform: translate(calc(-50% - 32px), calc(-50% + 8px)) scale(0.86) rotateY(6deg);
+  }
+
+  .phone-back-right {
+    transform: translate(calc(-50% + 32px), calc(-50% + 15px)) scale(0.76) rotateY(-6deg);
+  }
+
+  .equalizer-float {
+    bottom: 18px;
+    left: calc(50% + 48px);
+  }
+
   .hero-actions {
     flex-direction: column;
     align-items: center;
