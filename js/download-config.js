@@ -2,7 +2,6 @@
  * TejaBeats Download Configuration
  *
  * Real release data for the official TejaBeats download website.
- * Source: https://github.com/tejareddykovvuri/TejaBeats
  *
  * RULES:
  * - Do not link to files that do not exist.
@@ -11,9 +10,9 @@
  */
 
 const DOWNLOAD_CONFIG = {
-  repoUrl: 'https://github.com/tejareddykovvuri/TejaBeats',
-  releasesUrl: 'https://github.com/tejareddykovvuri/TejaBeats/releases/latest',
-  licenseUrl: 'https://github.com/tejareddykovvuri/TejaBeats/blob/main/LICENSE',
+  repoUrl: '',
+  releasesUrl: '',
+  licenseUrl: '',
   licenseName: 'GPL-2.0',
 
   release: {

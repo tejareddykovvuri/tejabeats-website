@@ -1,15 +1,14 @@
 /**
  * TejaBeats Download Website — Premium interactions
- * Source repo: https://github.com/tejareddykovvuri/TejaBeats
  */
 
 (function () {
   'use strict';
 
   const FALLBACK_CONFIG = {
-    repoUrl: 'https://github.com/tejareddykovvuri/TejaBeats',
-    releasesUrl: 'https://github.com/tejareddykovvuri/TejaBeats/releases/latest',
-    licenseUrl: 'https://github.com/tejareddykovvuri/TejaBeats/blob/main/LICENSE',
+    repoUrl: '',
+    releasesUrl: '',
+    licenseUrl: '',
     licenseName: 'GPL-2.0',
     release: { version: '3.0.4', date: '2026-09-16', notes: [] },
     android: { url: 'https://github.com/tejareddykovvuri/TejaBeats/releases/download/v3.0.4/TejaBeats.apk', version: '3.0.4', size: '—', label: 'Download APK', requirements: 'Android 5.0+' },
@@ -372,10 +371,10 @@
     }
 
     if (releaseAndroid) {
-      releaseAndroid.href = cfg.android.url || cfg.releasesUrl;
+      releaseAndroid.href = cfg.android.url || '#download';
     }
     if (releaseWindows) {
-      releaseWindows.href = cfg.windows.url || cfg.releasesUrl;
+      releaseWindows.href = cfg.windows.url || '#download';
     }
   }
 
