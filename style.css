@@ -1906,7 +1906,8 @@ button { font-family: inherit; cursor: pointer; }
     transform: none;
     width: 100%;
     max-width: 320px;
-    height: 390px;
+    height: auto;
+    min-height: 390px;
     margin: 2.25rem auto 0 auto;
     pointer-events: none;
     order: 2;
@@ -2086,11 +2087,16 @@ button { font-family: inherit; cursor: pointer; }
   }
 
   .hero {
-    min-height: calc(100vh - 2rem);
-    padding-bottom: 3rem;
+    min-height: auto;
+    padding-top: calc(var(--header-height) + 1.5rem);
+    padding-bottom: 3.5rem;
   }
   .hero-title {
     font-size: clamp(2rem, 9vw, 3.2rem);
+  }
+
+  .equalizer-float {
+    display: none !important;
   }
 
   .features-bento { grid-template-columns: 1fr; }
@@ -2150,34 +2156,34 @@ button { font-family: inherit; cursor: pointer; }
    ================================================================ */
 @media (max-width: 480px) {
   .hero-visuals {
-    max-width: 270px;
-    height: 330px;
-    margin-top: 1.75rem;
+    max-width: 280px;
+    height: auto;
+    min-height: 340px;
+    margin: 2.25rem auto 1rem auto;
+    clear: both;
   }
 
   .phone-stack {
-    width: 160px;
-    height: 320px;
+    width: 170px;
+    height: 330px;
   }
 
   .stack-frame {
-    width: 155px;
-    height: 310px;
+    width: 160px;
+    height: 320px;
     border-radius: 22px;
   }
 
   .phone-back-left {
-    transform: translate(calc(-50% - 32px), calc(-50% + 8px)) scale(0.86) rotateY(6deg);
+    top: 0;
+    left: 50%;
+    transform: translateX(calc(-50% - 24px)) translateY(10px) scale(0.88) rotateY(6deg);
   }
 
   .phone-back-right {
-    transform: translate(calc(-50% + 32px), calc(-50% + 15px)) scale(0.76) rotateY(-6deg);
-  }
-
-  .equalizer-float {
-    bottom: 18px;
-    right: -15px;
-    left: auto;
+    top: 0;
+    left: 50%;
+    transform: translateX(calc(-50% + 24px)) translateY(18px) scale(0.78) rotateY(-6deg);
   }
 
   .hero-actions {
