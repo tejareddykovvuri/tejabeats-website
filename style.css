@@ -642,8 +642,13 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 @keyframes phoneFloatMobile {
-  0%, 100% { transform: translateY(-50%) translateY(0px); }
-  50% { transform: translateY(-50%) translateY(-10px); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes heroVisualsInMobile {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .stack-phone {
@@ -1901,19 +1906,21 @@ button { font-family: inherit; cursor: pointer; }
     transform: none;
     width: 100%;
     max-width: 320px;
-    height: 380px;
+    height: 390px;
     margin: 2.25rem auto 0 auto;
     pointer-events: none;
     order: 2;
-    animation: heroVisualsIn 1s var(--transition) 0.3s both;
+    animation: heroVisualsInMobile 1s var(--transition) 0.3s both;
   }
 
   .phone-stack {
-    top: 50%;
-    left: 50%;
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0 auto;
     width: 190px;
     height: 370px;
-    transform: translateY(-50%);
+    transform: none;
     animation: phoneFloatMobile 5s ease-in-out infinite;
   }
 
@@ -1928,24 +1935,40 @@ button { font-family: inherit; cursor: pointer; }
   }
 
   .phone-front {
-    transform: translate(-50%, -50%);
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto;
+    z-index: 3;
   }
 
   .phone-back-left {
-    transform: translate(calc(-50% - 42px), calc(-50% + 10px)) scale(0.86) rotateY(6deg);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(calc(-50% - 38px)) translateY(12px) scale(0.86) rotateY(6deg);
     opacity: 0.55;
+    z-index: 2;
   }
 
   .phone-back-right {
-    transform: translate(calc(-50% + 42px), calc(-50% + 18px)) scale(0.76) rotateY(-6deg);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(calc(-50% + 38px)) translateY(20px) scale(0.76) rotateY(-6deg);
     opacity: 0.35;
+    z-index: 1;
   }
 
   .equalizer-float {
-    bottom: 25px;
-    left: calc(50% + 60px);
+    position: absolute;
+    bottom: 20px;
+    right: -25px;
+    left: auto;
     opacity: 0.85;
     z-index: 10;
+    display: flex;
   }
 
   .equalizer-float span {
@@ -2153,7 +2176,8 @@ button { font-family: inherit; cursor: pointer; }
 
   .equalizer-float {
     bottom: 18px;
-    left: calc(50% + 48px);
+    right: -15px;
+    left: auto;
   }
 
   .hero-actions {
