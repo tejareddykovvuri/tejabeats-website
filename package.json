@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "description": "Official download and landing website for TejaBeats",
-  "main": "server.js",
   "scripts": {
+    "build": "node -e \"console.log('Production build ready')\"",
     "dev": "node server.js --open",
-    "start": "node server.js --open",
+    "start": "node server.js",
     "serve": "node server.js"
   },
   "keywords": [
